@@ -1,15 +1,37 @@
+import 'package:diving_trip_agency/screens/create_trip/testDropdownw.dart';
+import 'package:diving_trip_agency/screens/main/mainScreen.dart';
+import 'package:diving_trip_agency/screens/main/main_screen_company.dart';
+import 'package:diving_trip_agency/screens/signup/test.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:grpc/grpc_connection_interface.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+void main() async{
+  await Hive.initFlutter();
+  await Hive.openBox('userInfo');
 
-void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
+    //for state management
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Diving Trip Agency',
+      theme: ThemeData(
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: TextButton.styleFrom(backgroundColor: Color(0xFFF52B2Bf)),
+          ),
+          fontFamily: 'Poppins'),
+     home: MainScreen(),
+    //  home: MainScreen(), //Original
+   // home: HomePage(),
+=======
     return MaterialApp(
       title: 'Smart Aquarium',
       theme: ThemeData(
@@ -25,16 +47,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Smart Aquarium'),
+
     );
   }
-}
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
 
   // This class is the configuration for the state. It holds the values (in this
   // case the title) provided by the parent (in this case the App widget) and
@@ -112,4 +128,5 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
 }
