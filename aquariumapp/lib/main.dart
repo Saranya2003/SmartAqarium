@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
     //for state management
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Diving Trip Agency',
+      title: 'Smart Aquarium',
       theme: ThemeData(
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: TextButton.styleFrom(backgroundColor: Color(0xFFF52B2Bf)),
